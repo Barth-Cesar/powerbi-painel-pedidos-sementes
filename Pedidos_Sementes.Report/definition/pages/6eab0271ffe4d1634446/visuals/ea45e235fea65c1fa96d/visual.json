@@ -1,0 +1,133 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ea45e235fea65c1fa96d",
+  "position": {
+    "x": 8,
+    "y": 150,
+    "z": 10000,
+    "height": 277,
+    "width": 416,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "CULTIVAR"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.CULTIVAR",
+              "nativeQueryRef": "Cultivar",
+              "active": true,
+              "displayName": "Cultivar"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Bags Total"
+                }
+              },
+              "queryRef": "_Medidas.Bags Total",
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Bags Com TSI"
+                }
+              },
+              "queryRef": "_Medidas.Bags Com TSI",
+              "nativeQueryRef": "Com TSI",
+              "displayName": "Com TSI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Bags Sem TSI"
+                }
+              },
+              "queryRef": "_Medidas.Bags Sem TSI",
+              "nativeQueryRef": "Sem TSI",
+              "displayName": "Sem TSI"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "Bags Total"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cultivares (com x sem TSI)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

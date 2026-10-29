@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "dbbfaa790644168dcb9f",
+  "displayName": "Detalhe Cultivar",
+  "displayOption": "FitToPage",
+  "height": 740,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "900945a8d73a670206d1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "CULTIVAR"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FATO_ITENS_PEDIDO",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "CULTIVAR"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'LX 5821 TMX'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "d620da4e06808a5943d0",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "3d3dfb7f94f8cb81dbb9",
+        "boundFilter": "900945a8d73a670206d1",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "CULTIVAR"
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode"
+}

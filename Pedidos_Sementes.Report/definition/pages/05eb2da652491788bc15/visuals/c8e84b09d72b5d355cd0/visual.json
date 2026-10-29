@@ -1,0 +1,169 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "c8e84b09d72b5d355cd0",
+  "position": {
+    "x": 972,
+    "y": 435,
+    "z": 78000,
+    "height": 277,
+    "width": 300,
+    "tabOrder": 78000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "CLIENTE"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.CLIENTE",
+              "nativeQueryRef": "Cliente",
+              "displayName": "Cliente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "LOCALIDADE_UF"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.LOCALIDADE_UF",
+              "nativeQueryRef": "Cidade/UF",
+              "displayName": "Cidade/UF"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Qtd na Embalagem"
+                }
+              },
+              "queryRef": "_Medidas.Qtd na Embalagem",
+              "nativeQueryRef": "Qtd",
+              "displayName": "Qtd"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Entregue na Embalagem"
+                }
+              },
+              "queryRef": "_Medidas.Entregue na Embalagem",
+              "nativeQueryRef": "Entregue",
+              "displayName": "Entregue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Saldo a Carregar na Embalagem"
+                }
+              },
+              "queryRef": "_Medidas.Saldo a Carregar na Embalagem",
+              "nativeQueryRef": "A entregar",
+              "displayName": "A entregar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Valor na Embalagem"
+                }
+              },
+              "queryRef": "_Medidas.Valor na Embalagem",
+              "nativeQueryRef": "Valor",
+              "displayName": "Valor"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Preço Médio na Embalagem"
+                }
+              },
+              "queryRef": "_Medidas.Preço Médio na Embalagem",
+              "nativeQueryRef": "R$/un",
+              "displayName": "R$/un"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "Qtd na Embalagem"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Clientes'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

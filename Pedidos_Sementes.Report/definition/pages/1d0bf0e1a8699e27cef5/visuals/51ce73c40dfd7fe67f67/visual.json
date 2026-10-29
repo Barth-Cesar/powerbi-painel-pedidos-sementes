@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "51ce73c40dfd7fe67f67",
+  "position": {
+    "x": 728,
+    "y": 8,
+    "z": 5000,
+    "height": 60,
+    "width": 180,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "RECEITA_TSI"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.RECEITA_TSI",
+              "nativeQueryRef": "Receita TSI",
+              "active": true,
+              "displayName": "Receita TSI"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

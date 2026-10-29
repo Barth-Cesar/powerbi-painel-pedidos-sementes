@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "3f1d4168b82536e7f18b",
+  "position": {
+    "x": 1166,
+    "y": 6,
+    "z": 16000,
+    "height": 62,
+    "width": 106,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "OPERACAO"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.OPERACAO",
+              "nativeQueryRef": "Operação",
+              "active": true,
+              "displayName": "Operação"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

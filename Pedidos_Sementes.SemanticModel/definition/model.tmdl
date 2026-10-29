@@ -1,0 +1,24 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["FATO_ITENS_PEDIDO","_Medidas","Data_Inicio","Pasta_Dados","dEmbalagem","dVendedorPrincipal"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table FATO_ITENS_PEDIDO
+ref table DateTableTemplate_e7fd77c0-5fd1-4bda-b162-605d5bd0486e
+ref table LocalDateTable_3ccc2964-e97a-40d6-b09a-7541ca002a15
+ref table LocalDateTable_b4d9105b-0673-4522-9942-50741f4d91fd
+ref table _Medidas
+ref table dEmbalagem
+ref table dVendedorPrincipal
+
+ref cultureInfo pt-BR
+

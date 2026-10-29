@@ -1,0 +1,9 @@
+# cache e configuracoes locais do Power BI
+**/.pbi/cache.abf
+**/.pbi/localSettings.json
+
+# prints candidatos (escolher e mover para imagens/)
+imagens/candidatas/
+
+# roteiro pessoal de publicacao (nao vai pro GitHub)
+PASSO_A_PASSO_PUBLICAR.md

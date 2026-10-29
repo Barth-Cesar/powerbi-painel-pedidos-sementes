@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e04a2c2a454be55f8ba0",
+  "position": {
+    "x": 576,
+    "y": 76,
+    "z": 8000,
+    "height": 66,
+    "width": 168,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Total em Bags"
+                }
+              },
+              "queryRef": "_Medidas.Total em Bags",
+              "nativeQueryRef": "Total (bags)",
+              "displayName": "Total (bags)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

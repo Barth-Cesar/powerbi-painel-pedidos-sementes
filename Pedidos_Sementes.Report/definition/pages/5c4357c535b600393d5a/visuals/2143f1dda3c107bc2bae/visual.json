@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2143f1dda3c107bc2bae",
+  "position": {
+    "x": 1066,
+    "y": 6,
+    "z": 5000,
+    "height": 62,
+    "width": 92,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "TEM_TSI"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.TEM_TSI",
+              "nativeQueryRef": "TSI",
+              "displayName": "TSI",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

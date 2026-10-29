@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "610a2dc6c97c3551b1a1",
+  "position": {
+    "x": 220,
+    "y": 76,
+    "z": 3000,
+    "height": 66,
+    "width": 204,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Sacas 200 mil (equivalente)"
+                }
+              },
+              "queryRef": "_Medidas.Sacas 200 mil (equivalente)",
+              "nativeQueryRef": "Sacas 200 mil (equivalente)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

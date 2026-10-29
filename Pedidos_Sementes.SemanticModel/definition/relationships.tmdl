@@ -1,0 +1,14 @@
+relationship bb41ea42-e6bc-48cf-8911-6752ab7589d5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FATO_ITENS_PEDIDO.DATA_PEDIDO
+	toColumn: LocalDateTable_3ccc2964-e97a-40d6-b09a-7541ca002a15.Date
+
+relationship 07a13fe7-6d80-4f5e-80fe-6e864feee356
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FATO_ITENS_PEDIDO.PREV_RETIRADA
+	toColumn: LocalDateTable_b4d9105b-0673-4522-9942-50741f4d91fd.Date
+
+relationship cc611fd4-6d72-4ecf-b564-b138f720a71b
+	fromColumn: FATO_ITENS_PEDIDO.UNIDADE_ORIGINAL
+	toColumn: dEmbalagem.UNIDADE
+

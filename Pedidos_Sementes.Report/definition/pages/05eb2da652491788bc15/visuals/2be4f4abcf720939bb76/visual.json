@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2be4f4abcf720939bb76",
+  "position": {
+    "x": 220,
+    "y": 76,
+    "z": 68100,
+    "height": 66,
+    "width": 204,
+    "tabOrder": 68100
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Sacas (pedidos em saca)"
+                }
+              },
+              "queryRef": "_Medidas.Sacas (pedidos em saca)",
+              "nativeQueryRef": "Sacas (pedidos em saca)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

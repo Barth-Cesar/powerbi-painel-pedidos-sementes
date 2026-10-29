@@ -1,0 +1,695 @@
+table FATO_ITENS_PEDIDO
+	lineageTag: a7feb7ee-0ecb-4a44-be4f-add67758f512
+
+	column ID_PEDIDO_INTERNO
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fd75a37-5db3-442a-abb9-99c6acb0fde3
+		summarizeBy: sum
+		sourceColumn: ID_PEDIDO_INTERNO
+
+		annotation SummarizationSetBy = Automatic
+
+	column N_PEDIDO
+		dataType: int64
+		formatString: 0
+		lineageTag: bd01a783-dc9c-4cbf-b184-0ac56e305d65
+		summarizeBy: none
+		sourceColumn: N_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS_PEDIDO
+		dataType: string
+		lineageTag: 5003d9e9-ee0e-47c0-a08c-69470ae84e46
+		summarizeBy: none
+		sourceColumn: STATUS_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS_ITEM
+		dataType: string
+		lineageTag: 4edb522c-c9bf-4509-8ea1-b6ba0ddc325d
+		summarizeBy: none
+		sourceColumn: STATUS_ITEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_PEDIDO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e7d8cc78-aa72-4a72-9dde-c842c9ac5336
+		summarizeBy: none
+		sourceColumn: DATA_PEDIDO
+
+		variation Variation
+			isDefault
+			relationship: bb41ea42-e6bc-48cf-8911-6752ab7589d5
+			defaultHierarchy: LocalDateTable_3ccc2964-e97a-40d6-b09a-7541ca002a15.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PREV_RETIRADA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9c81dee5-73e9-4eea-9f18-5df08416cbfe
+		summarizeBy: none
+		sourceColumn: PREV_RETIRADA
+
+		variation Variation
+			isDefault
+			relationship: 07a13fe7-6d80-4f5e-80fe-6e864feee356
+			defaultHierarchy: LocalDateTable_b4d9105b-0673-4522-9942-50741f4d91fd.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column GRUPO_VENDEDOR
+		dataType: string
+		lineageTag: 5f0f561d-9407-48fd-a29d-528b60953893
+		summarizeBy: none
+		sourceColumn: GRUPO_VENDEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR
+		dataType: string
+		lineageTag: d0a469cf-8e41-4b16-9eeb-48f0f3ed1ec6
+		summarizeBy: none
+		sourceColumn: VENDEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR_RESPONSAVEL
+		dataType: string
+		isHidden
+		lineageTag: b37adfcb-f09a-4171-9ce2-f2ccea5568c9
+		summarizeBy: none
+		sourceColumn: VENDEDOR_RESPONSAVEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_CLIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: d9747c1d-da0b-4a29-9cc0-a8ccaed39192
+		summarizeBy: sum
+		sourceColumn: COD_CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE
+		dataType: string
+		lineageTag: 39bd5334-b7ad-47b0-be1f-3f0691b4456f
+		summarizeBy: none
+		sourceColumn: CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIDADE_CLIENTE
+		dataType: string
+		lineageTag: ed35cafe-939a-4957-8339-72be8860cd1a
+		summarizeBy: none
+		sourceColumn: CIDADE_CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF_CLIENTE
+		dataType: string
+		lineageTag: 646b944d-6da2-4a10-a09c-8bd878a3bd9e
+		summarizeBy: none
+		sourceColumn: UF_CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOCALIDADE_UF
+		dataType: string
+		lineageTag: 6fb381e2-be53-4f5f-a002-a79a853c7e61
+		summarizeBy: none
+		sourceColumn: LOCALIDADE_UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRUPO_DE_PESSOA
+		dataType: string
+		lineageTag: b4a0675e-e501-4f28-b852-1b8dae9b090f
+		summarizeBy: none
+		sourceColumn: GRUPO_DE_PESSOA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_PRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 4dd35a23-908f-4507-a7fd-6bbc5f160f44
+		summarizeBy: sum
+		sourceColumn: ID_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CULTIVAR
+		dataType: string
+		lineageTag: 7efb6fb2-ed4b-4868-9068-2fc7c5f05a62
+		summarizeBy: none
+		sourceColumn: CULTIVAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOME_CULTURA
+		dataType: string
+		lineageTag: 7d6cf2b5-bf86-4efe-93db-4752f4cedde6
+		summarizeBy: none
+		sourceColumn: NOME_CULTURA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SAFRA_PEDIDO
+		dataType: string
+		lineageTag: a2317e68-6edd-46fa-bb6a-748444da9806
+		summarizeBy: none
+		sourceColumn: SAFRA_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SAFRA_ITEM
+		dataType: string
+		lineageTag: 90052d6e-b8ba-4e16-85b6-3f50343116d4
+		summarizeBy: none
+		sourceColumn: SAFRA_ITEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA
+		dataType: string
+		lineageTag: 9176256c-12b9-4622-8079-7db81970df3d
+		summarizeBy: none
+		sourceColumn: CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PENEIRA
+		dataType: string
+		lineageTag: 753265c7-6258-433d-8a7a-e9d104178588
+		summarizeBy: none
+		sourceColumn: PENEIRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRATAMENTO
+		dataType: string
+		lineageTag: f6d1bebb-7f3d-404e-a37f-e4a3d698d704
+		summarizeBy: none
+		sourceColumn: TRATAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAIXA_PMS
+		dataType: string
+		lineageTag: 1a91dd3c-b407-4ae8-ad7f-20bf5811fa14
+		summarizeBy: none
+		sourceColumn: FAIXA_PMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BIOTECNOLOGIA
+		dataType: string
+		lineageTag: 028699b8-95a0-429c-99e7-bac3e1ea3fcf
+		summarizeBy: none
+		sourceColumn: BIOTECNOLOGIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DETENTOR
+		dataType: string
+		lineageTag: a26a5434-e22f-433e-bcfd-9081466b196d
+		summarizeBy: none
+		sourceColumn: DETENTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_DE_VENDA
+		dataType: string
+		lineageTag: cedeefa0-d11b-460a-a036-7d20dfc792a4
+		summarizeBy: none
+		sourceColumn: TIPO_DE_VENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FRETE_POR_CONTA
+		dataType: string
+		lineageTag: 32edc074-ab6b-40a1-82d0-c7c879cf247e
+		summarizeBy: none
+		sourceColumn: FRETE_POR_CONTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column VL_FRETE
+		dataType: double
+		lineageTag: 4df7bf72-440e-4504-9a58-51debcf1ab7f
+		summarizeBy: sum
+		sourceColumn: VL_FRETE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OBSERVACAO_PEDIDO
+		dataType: string
+		lineageTag: 62388a5b-0d78-4346-8fe7-26d9a455494a
+		summarizeBy: none
+		sourceColumn: OBSERVACAO_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOEDA
+		dataType: string
+		lineageTag: 3e2b3662-4889-4024-bee0-d8146865a0e7
+		summarizeBy: none
+		sourceColumn: MOEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_UNIDADE
+		dataType: int64
+		formatString: 0
+		lineageTag: 07d756c4-3381-4da3-b689-e2032c9f1ac7
+		summarizeBy: sum
+		sourceColumn: ID_UNIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDADE_ORIGINAL
+		dataType: string
+		lineageTag: 95e8ff51-81ba-4262-a1ec-5b38fdb33495
+		summarizeBy: none
+		sourceColumn: UNIDADE_ORIGINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTIDADE_ORIGINAL
+		dataType: double
+		lineageTag: 0397eb02-77aa-4243-92e9-25390ecc1053
+		summarizeBy: sum
+		sourceColumn: QUANTIDADE_ORIGINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUANTIDADE
+		dataType: double
+		isHidden
+		lineageTag: 21dc85cd-73af-48d0-b76f-31c83a20ed37
+		summarizeBy: sum
+		sourceColumn: QUANTIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTD_PEDIDA_SACASPADRAO
+		dataType: double
+		isHidden
+		lineageTag: c2739dd5-a22a-4dd9-ab7e-bbccd59d31b6
+		summarizeBy: sum
+		sourceColumn: QTD_PEDIDA_SACASPADRAO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTD_FATURADA
+		dataType: double
+		lineageTag: 563cbd6a-f0b1-43f5-b9ab-184d88f2ed20
+		summarizeBy: sum
+		sourceColumn: QTD_FATURADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTD_A_FATURAR
+		dataType: double
+		lineageTag: bde1eb30-8c58-4b44-a564-9f5f7b73cbdc
+		summarizeBy: sum
+		sourceColumn: QTD_A_FATURAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTD_ENTREGUE
+		dataType: double
+		lineageTag: b68c9049-ec23-44a8-b933-89e4e0f24eb7
+		summarizeBy: sum
+		sourceColumn: QTD_ENTREGUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTD_A_ENTREGAR
+		dataType: double
+		lineageTag: d08486d8-f00f-4157-a07c-09acbb64e13e
+		summarizeBy: sum
+		sourceColumn: QTD_A_ENTREGAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALOR_UN_SEMENTE
+		dataType: double
+		lineageTag: ba81f97e-7c32-44e0-853e-07599098ef0d
+		summarizeBy: sum
+		sourceColumn: VALOR_UN_SEMENTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VL_TOTAL_SEM
+		dataType: double
+		lineageTag: 6004df0d-cbf9-469c-a089-70bd4ed91865
+		summarizeBy: sum
+		sourceColumn: VL_TOTAL_SEM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VL_UNIT_TSI
+		dataType: double
+		lineageTag: 18fc7e13-44ae-40c5-9867-74f667b0b7b4
+		summarizeBy: sum
+		sourceColumn: VL_UNIT_TSI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALOR_TSI
+		dataType: double
+		lineageTag: cdfc8a9c-8648-4bec-9efa-e66c51c4c1da
+		summarizeBy: sum
+		sourceColumn: VALOR_TSI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALOR_COMISSAO
+		dataType: double
+		lineageTag: 1ba514eb-84db-4c46-9341-94d467327a2c
+		summarizeBy: sum
+		sourceColumn: VALOR_COMISSAO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALOR_COMISSAO_TSI
+		dataType: double
+		lineageTag: 2e946aef-7d1e-4295-85ba-f93c65c82867
+		summarizeBy: sum
+		sourceColumn: VALOR_COMISSAO_TSI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALOR_FATURADO
+		dataType: double
+		lineageTag: 2c219870-6ff3-4a8b-8f1e-11b72f4f4180
+		summarizeBy: sum
+		sourceColumn: VALOR_FATURADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_PEDIDO
+		dataType: double
+		isHidden
+		lineageTag: 71baccce-eed1-4bf2-8611-23d85fa43583
+		summarizeBy: sum
+		sourceColumn: TOTAL_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COD_EMPRESA
+		dataType: int64
+		formatString: 0
+		lineageTag: 92a795f4-78bc-46cf-91ac-69a0ee225e8d
+		summarizeBy: none
+		sourceColumn: COD_EMPRESA
+
+		annotation SummarizationSetBy = User
+
+	column EMPRESA
+		dataType: string
+		lineageTag: 8ba10d65-039b-4afc-a933-6d14c54d8e10
+		summarizeBy: none
+		sourceColumn: EMPRESA
+
+		annotation SummarizationSetBy = User
+
+	column TIPO_EMPRESA
+		dataType: string
+		lineageTag: 2eb9f684-a9de-4b72-a74d-38a4eef0aa10
+		summarizeBy: none
+		sourceColumn: TIPO_EMPRESA
+
+		annotation SummarizationSetBy = User
+
+	column COD_VENDEDOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 853d58d7-5050-48e7-b4e4-ea8f75230dfd
+		summarizeBy: none
+		sourceColumn: COD_VENDEDOR
+
+		annotation SummarizationSetBy = User
+
+	column COD_CULTURA
+		dataType: int64
+		formatString: 0
+		lineageTag: 21fa6376-3a43-41bd-8e8d-4dc0838583ec
+		summarizeBy: none
+		sourceColumn: COD_CULTURA
+
+		annotation SummarizationSetBy = User
+
+	column COD_SAFRA
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cadcc4b-2b90-4928-8853-98d1571cac41
+		summarizeBy: none
+		sourceColumn: COD_SAFRA
+
+		annotation SummarizationSetBy = User
+
+	column QTD_FATURADA_SACASPADRAO
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 55b8dde0-a8b9-4db0-92fa-fc37565702d5
+		summarizeBy: none
+		sourceColumn: QTD_FATURADA_SACASPADRAO
+
+		annotation SummarizationSetBy = User
+
+	column QTD_A_FATURAR_SACASPADRAO
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: d8a78063-33cc-4f8a-94e4-01d2b85a188e
+		summarizeBy: none
+		sourceColumn: QTD_A_FATURAR_SACASPADRAO
+
+		annotation SummarizationSetBy = User
+
+	column QTD_ENTREGUE_SACASPADRAO
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 46424632-17bb-4818-b898-6f513bcee61c
+		summarizeBy: none
+		sourceColumn: QTD_ENTREGUE_SACASPADRAO
+
+		annotation SummarizationSetBy = User
+
+	column QTD_A_ENTREGAR_SACASPADRAO
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 7845b8eb-7b08-452f-82f2-d8b6a3307105
+		summarizeBy: none
+		sourceColumn: QTD_A_ENTREGAR_SACASPADRAO
+
+		annotation SummarizationSetBy = User
+
+	column COD_OPERACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 1660a057-f5bd-4569-8f4e-f749945c8694
+		summarizeBy: none
+		sourceColumn: COD_OPERACAO
+
+		annotation SummarizationSetBy = User
+
+	column OPERACAO
+		dataType: string
+		lineageTag: 8846174e-3681-46a7-bb59-ac1ef672baf5
+		summarizeBy: none
+		sourceColumn: OPERACAO
+
+		annotation SummarizationSetBy = User
+
+	column MES_ANO_NUM = YEAR ( FATO_ITENS_PEDIDO[DATA_PEDIDO] ) * 100 + MONTH ( FATO_ITENS_PEDIDO[DATA_PEDIDO] )
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d55d3c9d-b934-42cc-a208-3bd31fb3a591
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column MES_ANO = FORMAT ( FATO_ITENS_PEDIDO[DATA_PEDIDO], "mmm/yy" )
+		dataType: string
+		lineageTag: 1e09436d-5212-477e-9336-351b51caeb7d
+		summarizeBy: none
+		sortByColumn: MES_ANO_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEM_TSI = IF ( UPPER ( TRIM ( FATO_ITENS_PEDIDO[TRATAMENTO] ) ) IN { "SEM TRATAMENTO", "SEM TSI", "" }, "SEM TSI", "COM TSI" )
+		dataType: string
+		lineageTag: 1c1e1121-8b13-4baf-91e1-1420479cc79a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_GRUPO_CULTIVAR
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ce8cc57-bf43-4ba0-a4a2-ade2ebe3ac4d
+		summarizeBy: none
+		sourceColumn: COD_GRUPO_CULTIVAR
+
+		annotation SummarizationSetBy = User
+
+	column GRUPO_CULTIVAR
+		dataType: string
+		lineageTag: ff4d81c4-0edb-422e-ba76-4a3ae72c153f
+		summarizeBy: none
+		sourceColumn: GRUPO_CULTIVAR
+
+		annotation SummarizationSetBy = User
+
+	column LOCAL_MAPA = FATO_ITENS_PEDIDO[CIDADE_CLIENTE] & ", " & FATO_ITENS_PEDIDO[UF_CLIENTE] & ", Brasil"
+		dataType: string
+		lineageTag: f1cfc037-8a7e-4ccc-bc3d-fab1bf3412f4
+		dataCategory: Place
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR_PRINCIPAL = VAR _g = LOOKUPVALUE ( dVendedorPrincipal[VENDEDOR_PRINCIPAL], dVendedorPrincipal[CHAVE], TRIM ( FATO_ITENS_PEDIDO[GRUPO_VENDEDOR] ) ) VAR _v = LOOKUPVALUE ( dVendedorPrincipal[VENDEDOR_PRINCIPAL], dVendedorPrincipal[CHAVE], TRIM ( FATO_ITENS_PEDIDO[VENDEDOR] ) ) RETURN COALESCE ( _g, _v, "Sem vínculo" )
+		dataType: string
+		lineageTag: 9125b995-b1a5-4b2c-bd08-0789ce04948d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANAL = VAR _v = LOOKUPVALUE ( dVendedorPrincipal[VENDEDOR_PRINCIPAL], dVendedorPrincipal[CHAVE], TRIM ( FATO_ITENS_PEDIDO[VENDEDOR] ) ) VAR _nome = TRIM ( FATO_ITENS_PEDIDO[VENDEDOR] ) RETURN IF ( _v = FATO_ITENS_PEDIDO[VENDEDOR_PRINCIPAL] || _nome = "Sem Vendedor" || _nome = "", "Venda direta", _nome )
+		dataType: string
+		lineageTag: 75212c4f-b177-4988-80f9-5516043f7412
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMBALAGEM = VAR _u = TRIM ( FATO_ITENS_PEDIDO[UNIDADE_ORIGINAL] ) VAR _c = UPPER ( FATO_ITENS_PEDIDO[NOME_CULTURA] ) RETURN SWITCH ( TRUE (), _u = "5MM", "Bag", _u = "SC200", "Saca 200 mil", _u = "4MM", "Bag 4 milhões", _u = "140M", "Saca 140 mil", _u = "60M", "Saca 60 mil", _u = "80M", "Saca 80 mil", LEFT ( _u, 4 ) = "INAT" && CONTAINSSTRING ( _c, "MILHO" ), "Saca (cód. antigo)", LEFT ( _u, 4 ) = "INAT", "Bag (cód. antigo)", LEFT ( _u, 2 ) = "BB", "Bigbag " & TRIM ( MID ( _u, 3, 10 ) ) & " kg", _u = "TON", "Tonelada", _u = "KG", "Kg", LEFT ( _u, 2 ) = "SC", "Saco " & TRIM ( MID ( _u, 3, 10 ) ) & " kg", _u )
+		dataType: string
+		lineageTag: 332d1a39-88c5-4d2c-9228-fa893e5cab2f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECEITA_TSI = VAR _t = TRIM ( FATO_ITENS_PEDIDO[TRATAMENTO] ) RETURN IF ( UPPER ( _t ) IN { "SEM TRATAMENTO", "SEM TSI", "" }, "SEM TSI", _t )
+		dataType: string
+		lineageTag: 5fb33af9-da74-4f07-ba5e-6552ac66a0a7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KG_POR_UNIDADE = VAR _u = TRIM ( FATO_ITENS_PEDIDO[UNIDADE_ORIGINAL] ) RETURN SWITCH ( _u, "KG", 1, "TON", 1000, "SC25", 25, "SC40", 40, "SC50", 50, "SC60", 60, "BB 550", 550, "BB 600", 600, "BB 680", 680, "BB 700", 700, "BB 720", 720, "BB 760", 760, "BB 800", 800, "BB1000", 1000, DIVIDE ( FATO_ITENS_PEDIDO[QTD_PEDIDA_SACASPADRAO], FATO_ITENS_PEDIDO[QUANTIDADE_ORIGINAL] ) )
+		dataType: double
+		isHidden
+		formatString: #,0.##
+		lineageTag: 0a6d6fde-eb09-4a84-8106-b8fd541b8823
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column FATOR_BAG =
+			-- Quantos BAGS vale 1 unidade da embalagem do pedido (regras por cultura - 16/10/2026)
+			VAR _u = TRIM ( FATO_ITENS_PEDIDO[UNIDADE_ORIGINAL] )
+			VAR _c = UPPER ( FATO_ITENS_PEDIDO[NOME_CULTURA] )
+			VAR _kg = FATO_ITENS_PEDIDO[KG_POR_UNIDADE]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        CONTAINSSTRING ( _c, "MILHO" ), 1,                      -- milho: sacas como estão no banco
+			        CONTAINSSTRING ( _c, "SOJA" ),
+			            SWITCH (
+			                TRUE (),
+			                _u = "5MM", 1,
+			                _u = "SC200", 1 / 25,
+			                _u = "4MM", 0.8,
+			                _u = "140M", 0.028,
+			                LEFT ( _u, 2 ) = "BB", 1,                         -- cada bigbag = 1 bag
+			                LEFT ( _u, 4 ) = "INAT", 1,
+			                DIVIDE ( _kg, 1000 )                              -- saco/kg: peso / 1.000 kg
+			            ),
+			        CONTAINSSTRING ( _c, "AVEIA" ), DIVIDE ( _kg, 760 ),  -- aveia: bag de 760 kg
+			        CONTAINSSTRING ( _c, "TRIGO" ), DIVIDE ( _kg, 1000 ), -- trigo: bag de 1.000 kg
+			        DIVIDE ( _kg, 1000 )
+			    )
+		dataType: double
+		isHidden
+		formatString: #,0.####
+		lineageTag: 7f74f23e-2d4f-4012-a8cb-25dc8f02c7d6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column QTD_EFETIVA = IF ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "FECHADO", FATO_ITENS_PEDIDO[QTD_FATURADA], FATO_ITENS_PEDIDO[QUANTIDADE_ORIGINAL] )
+		dataType: double
+		formatString: #,0.##
+		lineageTag: ce15022c-fa3b-41d7-bd7f-418b375ce498
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = User
+
+	partition FATO_ITENS_PEDIDO = m
+		mode: import
+		source =
+				let
+				    // Base FICTÍCIA (portfólio): CSV gerado por dados/gerar_base_ficticia.py
+				    // Ajuste a pasta em Transformar dados > Editar parâmetros > Pasta_Dados
+				    Fonte = Csv.Document(File.Contents(Pasta_Dados & "pedidos_ficticios.csv"), [Delimiter=";", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"ID_PEDIDO_INTERNO", Int64.Type}, {"N_PEDIDO", Int64.Type}, {"STATUS_PEDIDO", type text}, {"STATUS_ITEM", type text}, {"DATA_PEDIDO", type datetime}, {"PREV_RETIRADA", type datetime}, {"GRUPO_VENDEDOR", type text}, {"VENDEDOR", type text}, {"VENDEDOR_RESPONSAVEL", type text}, {"COD_CLIENTE", Int64.Type}, {"CLIENTE", type text}, {"CIDADE_CLIENTE", type text}, {"UF_CLIENTE", type text}, {"LOCALIDADE_UF", type text}, {"GRUPO_DE_PESSOA", type text}, {"ID_PRODUTO", Int64.Type}, {"CULTIVAR", type text}, {"NOME_CULTURA", type text}, {"SAFRA_PEDIDO", type text}, {"SAFRA_ITEM", type text}, {"CATEGORIA", type text}, {"PENEIRA", type text}, {"TRATAMENTO", type text}, {"FAIXA_PMS", type text}, {"BIOTECNOLOGIA", type text}, {"DETENTOR", type text}, {"TIPO_DE_VENDA", type text}, {"FRETE_POR_CONTA", type text}, {"VL_FRETE", type number}, {"OBSERVACAO_PEDIDO", type text}, {"MOEDA", type text}, {"ID_UNIDADE", Int64.Type}, {"UNIDADE_ORIGINAL", type text}, {"QUANTIDADE_ORIGINAL", type number}, {"QUANTIDADE", type number}, {"QTD_PEDIDA_SACASPADRAO", type number}, {"QTD_FATURADA", type number}, {"QTD_A_FATURAR", type number}, {"QTD_ENTREGUE", type number}, {"QTD_A_ENTREGAR", type number}, {"VALOR_UN_SEMENTE", type number}, {"VL_TOTAL_SEM", type number}, {"VL_UNIT_TSI", type number}, {"VALOR_TSI", type number}, {"VALOR_COMISSAO", type number}, {"VALOR_COMISSAO_TSI", type number}, {"VALOR_FATURADO", type number}, {"TOTAL_PEDIDO", type number}, {"COD_EMPRESA", Int64.Type}, {"EMPRESA", type text}, {"TIPO_EMPRESA", type text}, {"COD_VENDEDOR", Int64.Type}, {"COD_CULTURA", Int64.Type}, {"COD_SAFRA", Int64.Type}, {"QTD_FATURADA_SACASPADRAO", type number}, {"QTD_A_FATURAR_SACASPADRAO", type number}, {"QTD_ENTREGUE_SACASPADRAO", type number}, {"QTD_A_ENTREGAR_SACASPADRAO", type number}, {"COD_OPERACAO", Int64.Type}, {"OPERACAO", type text}, {"COD_GRUPO_CULTIVAR", Int64.Type}, {"GRUPO_CULTIVAR", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

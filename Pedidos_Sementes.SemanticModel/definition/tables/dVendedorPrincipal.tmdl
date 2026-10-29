@@ -1,0 +1,40 @@
+table dVendedorPrincipal
+	lineageTag: 6d6cdeae-2f81-4c0c-b455-8fc3e9baf71f
+
+	column CHAVE
+		dataType: string
+		lineageTag: d219187b-2934-4768-a599-6255138b71f5
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR_PRINCIPAL
+		dataType: string
+		lineageTag: 059c9efa-a206-453a-b7f0-1b65cd5621fb
+		summarizeBy: none
+		sourceColumn: VENDEDOR_PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: e1ce7eb0-56ab-4504-a7aa-253ae208a8f0
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dVendedorPrincipal = m
+		mode: import
+		source =
+				let
+				    // Vendedores e canais FICTÍCIOS (portfólio)
+				    Fonte = #table(type table [CHAVE = text, VENDEDOR_PRINCIPAL = text, TIPO = text], {{"ANA RIBEIRO", "Ana Ribeiro", "Vendedor"}, {"BRUNO KESSLER", "Bruno Kessler", "Vendedor"}, {"CARLA MENEZES", "Carla Menezes", "Vendedor"}, {"DIEGO FARIAS", "Diego Farias", "Vendedor"}, {"EDUARDA LOPES", "Eduarda Lopes", "Vendedor"}, {"FABIO NUNES", "Fabio Nunes", "Vendedor"}, {"AGRO CANAL NORTE LTDA", "Ana Ribeiro", "Canal"}, {"REVENDA CAMPO FORTE", "Carla Menezes", "Canal"}, {"COMERCIAL SAFRA BOA", "Diego Farias", "Canal"}, {"INSUMOS PLANALTO", "Diego Farias", "Canal"}, {"AGROSUL REPRESENTACOES", "Fabio Nunes", "Canal"}})
+				in
+				    Fonte
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

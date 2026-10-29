@@ -1,0 +1,13 @@
+expression Data_Inicio = #date(2023, 1, 1) meta [IsParameterQuery=true, Type="Date", IsParameterQueryRequired=true]
+	lineageTag: 054df21c-26e6-4fe6-a06e-56cf201b2bda
+
+	annotation PBI_ResultType = Date
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression Pasta_Dados = "C:\Users\gesta\Desktop\Bases VBA\Portfolio_BI\powerbi-painel-pedidos-sementes\dados\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 1de5b482-d3d9-487c-926d-2f6f49a03ab5
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navegação

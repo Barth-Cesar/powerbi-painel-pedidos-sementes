@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Pedidos_Sementes"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "31abb7c1-130c-474c-80a5-99dd0730869f"
+  }
+}

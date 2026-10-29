@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "99a1079cac6b2242190f",
+  "position": {
+    "x": 312,
+    "y": 64,
+    "z": 4000,
+    "height": 70,
+    "width": 145,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Preço Médio por Bag"
+                }
+              },
+              "queryRef": "_Medidas.Preço Médio por Bag",
+              "nativeQueryRef": "Preço Médio por Bag"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

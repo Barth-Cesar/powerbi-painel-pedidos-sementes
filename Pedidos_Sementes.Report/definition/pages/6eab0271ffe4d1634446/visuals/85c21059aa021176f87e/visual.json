@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "85c21059aa021176f87e",
+  "position": {
+    "x": 1052,
+    "y": 8,
+    "z": 6000,
+    "height": 60,
+    "width": 220,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "N_PEDIDO"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.N_PEDIDO",
+              "nativeQueryRef": "Nº do pedido",
+              "active": true,
+              "displayName": "Nº do pedido"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

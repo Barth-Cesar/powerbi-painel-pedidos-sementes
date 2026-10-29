@@ -1,0 +1,334 @@
+table _Medidas
+	lineageTag: 6deef70f-d4b8-4672-b302-5ca9d83e6f44
+
+	measure 'Nº Pedidos' = CALCULATE ( DISTINCTCOUNT ( FATO_ITENS_PEDIDO[ID_PEDIDO_INTERNO] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 1. Pedidos
+		lineageTag: 892c6d85-57f7-4fa2-8a0e-c14569d0e919
+
+	measure 'Nº Clientes' = CALCULATE ( DISTINCTCOUNT ( FATO_ITENS_PEDIDO[COD_CLIENTE] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 1. Pedidos
+		lineageTag: b04aedab-704d-432f-a417-185a0f95ee98
+
+	measure 'Nº Itens Fechados' = CALCULATE ( COUNTROWS ( FATO_ITENS_PEDIDO ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "FECHADO" ) )
+		formatString: #,0
+		displayFolder: 1. Pedidos
+		lineageTag: 88497a97-73a3-402e-bcb1-eb073f1d851c
+
+	measure 'Nº Itens Abertos' = CALCULATE ( COUNTROWS ( FATO_ITENS_PEDIDO ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "ABERTO" ) )
+		formatString: #,0
+		displayFolder: 1. Pedidos
+		lineageTag: 3ca0ba82-658b-4f75-96c1-b86f8d9b93b4
+
+	measure 'Valor Sementes' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QTD_EFETIVA] * FATO_ITENS_PEDIDO[VALOR_UN_SEMENTE] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: \R\$ #,0
+		displayFolder: 2. Valores
+		lineageTag: 8af93294-191a-4f53-b5db-3631dce79fe2
+
+	measure 'Valor TSI' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[VALOR_TSI] * DIVIDE ( FATO_ITENS_PEDIDO[QTD_EFETIVA], FATO_ITENS_PEDIDO[QUANTIDADE_ORIGINAL] ) ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: \R\$ #,0
+		displayFolder: 2. Valores
+		lineageTag: 1a85729d-f160-4962-ae58-77b2b8aad5a8
+
+	measure 'Valor Total' = [Valor Sementes] + [Valor TSI]
+		formatString: \R\$ #,0
+		displayFolder: 2. Valores
+		lineageTag: 8906f6bf-b3b3-416e-9227-5991dc086fa4
+
+	measure 'Valor Fechado' = CALCULATE ( [Valor Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "FECHADO" ) )
+		formatString: \R\$ #,0
+		displayFolder: 2. Valores
+		lineageTag: 7c86ac16-c875-45a4-9d53-e50a7ff1b916
+
+	measure 'Valor Aberto' = CALCULATE ( [Valor Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "ABERTO" ) )
+		formatString: \R\$ #,0
+		displayFolder: 2. Valores
+		lineageTag: 8617ea4d-20ec-4b85-a644-f3807ac27976
+
+	measure 'Preço Médio por Bag' = DIVIDE ( [Valor Sementes], [Bags Total] )
+		formatString: \R\$ #,0.00
+		displayFolder: 2. Valores
+		lineageTag: 6b404dbe-1a62-4144-a2b4-266f6cd9edec
+
+	measure 'Bags Total' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QTD_EFETIVA] * FATO_ITENS_PEDIDO[FATOR_BAG] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 785ec8c8-af52-45c0-9471-f42310953440
+
+	measure 'Bags Fechado' = CALCULATE ( [Bags Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "FECHADO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 8d519eee-6a3d-4b30-a343-02238de6dda5
+
+	measure 'Bags Aberto' = CALCULATE ( [Bags Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "ABERTO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: c6f8d886-1b85-4414-9dfb-92f03c8af8db
+
+	measure 'Bags Faturado' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QTD_FATURADA] * FATO_ITENS_PEDIDO[FATOR_BAG] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 6a9b0883-5dc5-486a-9b34-da0dfdbc6d82
+
+	measure 'Bags a Faturar' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QTD_A_FATURAR] * FATO_ITENS_PEDIDO[FATOR_BAG] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "ABERTO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 8dfe32a2-8591-4791-a487-7ff89b6b2e7a
+
+	measure 'Bags Entregue' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QTD_ENTREGUE] * FATO_ITENS_PEDIDO[FATOR_BAG] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 29846ab3-69b2-44c9-9057-0c5dfda03c03
+
+	measure 'Bags a Entregar' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QTD_A_ENTREGAR] * FATO_ITENS_PEDIDO[FATOR_BAG] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "ABERTO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: d55472ea-6697-4b93-8bad-bb08adaed40b
+
+	measure 'Bags Top 5 Cultivares' = VAR _top5 = CALCULATETABLE ( TOPN ( 5, VALUES ( FATO_ITENS_PEDIDO[CULTIVAR] ), [Bags Total], DESC ), ALLSELECTED ( FATO_ITENS_PEDIDO[CULTIVAR] ), ALLSELECTED ( FATO_ITENS_PEDIDO[MES_ANO] ), ALLSELECTED ( FATO_ITENS_PEDIDO[MES_ANO_NUM] ) ) RETURN IF ( SELECTEDVALUE ( FATO_ITENS_PEDIDO[CULTIVAR] ) IN _top5, [Bags Total] )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: dce90cb8-5279-457f-90aa-4a190c47eee0
+
+	measure 'Peso (kg)' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_PEDIDA_SACASPADRAO] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 5f60115f-1d17-42f2-b765-291c6ceb972b
+
+	measure 'Qtd sem Regra de Bag' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), ISBLANK ( FATO_ITENS_PEDIDO[FATOR_BAG] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0.00
+		displayFolder: 4. Conferência
+		lineageTag: 31f63f23-48bb-4ac4-a57e-6343f99202fa
+
+	measure 'Bags Com TSI' = CALCULATE ( [Bags Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "COM TSI" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 849ae636-65f6-418e-b6b4-f19382db3ac4
+
+	measure '% Com TSI' = DIVIDE ( [Bags Com TSI], [Bags Total] )
+		formatString: 0.0%
+		displayFolder: 3. Quantidades
+		lineageTag: 5da1c689-1016-405f-a9f7-d4edf384e388
+
+	measure 'Título Cultivar' = "Cultivar: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[CULTIVAR], "vários selecionados" )
+		displayFolder: 5. Títulos
+		lineageTag: d777d26f-c8d8-4ebf-8972-5c7eb2a5b95a
+
+	measure 'Título Obtentor' = "Obtentor: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[GRUPO_CULTIVAR], "vários selecionados" )
+		displayFolder: 5. Títulos
+		lineageTag: 67c7d372-6915-4e56-a6c9-f1780b3d2b9b
+
+	measure 'Título Receita' = "Receita TSI: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[TRATAMENTO], "vários selecionados" )
+		displayFolder: 5. Títulos
+		lineageTag: 9fcb3fdd-4e1d-4c7a-866c-43ed7099d46d
+
+	measure 'Título Biotecnologia' = "Biotecnologia: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[BIOTECNOLOGIA], "vários selecionados" )
+		displayFolder: 5. Títulos
+		lineageTag: 68a6c0a9-73e4-4074-a3d2-da788726d951
+
+	measure 'Título TSI' = "TSI: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[TEM_TSI], "vários selecionados" )
+		displayFolder: 5. Títulos
+		lineageTag: 55beac3a-4671-4872-a59b-827f01f70a3d
+
+	measure 'Título Vendedor' = "Vendedor: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[VENDEDOR_PRINCIPAL], "vários selecionados" )
+		displayFolder: 5. Títulos
+		lineageTag: a8463444-d759-4fe9-a8c3-c8a8e0f545d7
+
+	measure 'Bags sem Vínculo de Vendedor' = CALCULATE ( [Bags Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[VENDEDOR_PRINCIPAL] = "Sem vínculo" ) )
+		formatString: #,0
+		displayFolder: 4. Conferência
+		lineageTag: 95e3975b-666a-441c-9de6-21ec793478c5
+
+	measure 'Bags Sem TSI' = CALCULATE ( [Bags Total], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "SEM TSI" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: e9a7094d-558d-4e22-a69c-d7a65e2adefc
+
+	measure 'Sacas 200 mil (equivalente)' = [Bags Total] * 25
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: 5b8b0c98-5f2b-4d4b-94e1-7f92b46a6bc3
+
+	measure 'Embalagem Selecionada' = SELECTEDVALUE ( FATO_ITENS_PEDIDO[EMBALAGEM], "Bag" )
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: f8296720-2117-48f8-a813-95ee276e7cd8
+
+	measure 'Qtd na Embalagem' = VAR _e = [Embalagem Selecionada] RETURN CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), FATO_ITENS_PEDIDO[EMBALAGEM] = _e, KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: d20b1425-e029-4a0a-a265-3084c52b04ec
+
+	measure 'Qtd na Embalagem Com TSI' = CALCULATE ( [Qtd na Embalagem], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "COM TSI" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 99fb9d5c-c54a-4bef-884a-01ad7152432d
+
+	measure 'Qtd na Embalagem Sem TSI' = CALCULATE ( [Qtd na Embalagem], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "SEM TSI" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 0571bbc8-2645-4201-9161-79181fd7590f
+
+	measure 'Valor na Embalagem' = VAR _e = [Embalagem Selecionada] RETURN CALCULATE ( [Valor Total], FATO_ITENS_PEDIDO[EMBALAGEM] = _e )
+		formatString: \R\$ #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 75ac7209-687b-435e-88e7-b93eff12048e
+
+	measure 'Preço Médio na Embalagem' = VAR _e = [Embalagem Selecionada] RETURN DIVIDE ( CALCULATE ( [Valor Sementes], FATO_ITENS_PEDIDO[EMBALAGEM] = _e ), [Qtd na Embalagem] )
+		formatString: \R\$ #,0.00
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 63afeac6-725b-4673-a80b-ea4410babd0d
+
+	measure 'Bags (pedidos em bag)' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), FATO_ITENS_PEDIDO[EMBALAGEM] = "Bag", KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 7869050d-dba6-4675-966e-69b466ac3158
+
+	measure 'Sacas (pedidos em saca)' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), FATO_ITENS_PEDIDO[EMBALAGEM] = "Saca 200 mil", KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: dafd84fa-4f6d-4f78-88c9-c9ade1c1f463
+
+	measure 'R$ por Bag (pedidos em bag)' = DIVIDE ( CALCULATE ( [Valor Sementes], FATO_ITENS_PEDIDO[EMBALAGEM] = "Bag" ), [Bags (pedidos em bag)] )
+		formatString: \R\$ #,0.00
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: e6052ffe-3ddc-4b32-a9ac-544804381d65
+
+	measure 'R$ por Saca (pedidos em saca)' = DIVIDE ( CALCULATE ( [Valor Sementes], FATO_ITENS_PEDIDO[EMBALAGEM] = "Saca 200 mil" ), [Sacas (pedidos em saca)] )
+		formatString: \R\$ #,0.00
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 9fec31ee-1883-45fc-89d9-fe565f43c567
+
+	measure 'Valor Total (todas embalagens)' = CALCULATE ( [Valor Total], REMOVEFILTERS ( FATO_ITENS_PEDIDO[EMBALAGEM] ) )
+		formatString: \R\$ #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: e2eedabf-bc2b-4ae8-8d41-5ebef3735acf
+
+	measure 'Nº Clientes (todas embalagens)' = CALCULATE ( [Nº Clientes], REMOVEFILTERS ( FATO_ITENS_PEDIDO[EMBALAGEM] ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 1e649f3d-49ba-40c3-8448-7efde2615e15
+
+	measure 'Título Vendedor Embalagem' = "Vendedor: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[VENDEDOR_PRINCIPAL], "vários selecionados" ) & " · embalagem do pedido"
+		displayFolder: 5. Títulos
+		lineageTag: 19be0199-9aec-44f6-a17f-62bc49d4839d
+
+	measure 'Total em Bags' = [Bags Total]
+		formatString: #,0.##
+		displayFolder: 3. Quantidades
+		lineageTag: cd416bf5-9d0e-4943-9edb-b766d7c5b7ab
+
+	measure 'Título Cliente' = IF ( HASONEVALUE ( FATO_ITENS_PEDIDO[CLIENTE] ), "Cliente: " & SELECTEDVALUE ( FATO_ITENS_PEDIDO[CLIENTE] ), "Todos os clientes · escolha um cliente no filtro acima" )
+		displayFolder: 5. Títulos
+		lineageTag: f45c01f7-f0c5-458c-99d1-0a91f1996fdb
+
+	measure 'Qtd Bag' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[EMBALAGEM] = "Bag" ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: 92af4a2b-3b5c-4107-823f-a8a9ba99f264
+
+	measure 'Qtd Saca' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[EMBALAGEM] = "Saca 200 mil" ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: 950b5f92-76fa-4ace-a0d5-954925b7e09a
+
+	measure 'Qtd Bag Com TSI' = CALCULATE ( [Qtd Bag], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "COM TSI" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: df60aab6-ad51-4a3a-9839-b19b812b966f
+
+	measure 'Qtd Bag Sem TSI' = CALCULATE ( [Qtd Bag], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "SEM TSI" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: d484e7a7-f7bb-4c42-94b5-a1862610ceaf
+
+	measure 'Qtd Saca Com TSI' = CALCULATE ( [Qtd Saca], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "COM TSI" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: f00109c8-3fa2-4f10-834f-f320db1f30aa
+
+	measure 'Qtd Saca Sem TSI' = CALCULATE ( [Qtd Saca], KEEPFILTERS ( FATO_ITENS_PEDIDO[TEM_TSI] = "SEM TSI" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: 6b4ede09-40e3-4d38-a65e-13b4cbed9e19
+
+	measure 'Matriz Bag' = IF ( ISFILTERED ( FATO_ITENS_PEDIDO[RECEITA_TSI] ), [Qtd Bag], CALCULATE ( [Qtd Bag], FATO_ITENS_PEDIDO[RECEITA_TSI] = "SEM TSI" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: e2e303f4-7c91-47ef-90d8-54652a4153c8
+
+	measure 'Matriz Saca' = IF ( ISFILTERED ( FATO_ITENS_PEDIDO[RECEITA_TSI] ), [Qtd Saca], CALCULATE ( [Qtd Saca], FATO_ITENS_PEDIDO[RECEITA_TSI] = "SEM TSI" ) )
+		formatString: #,0
+		displayFolder: 7. Matriz por cliente
+		lineageTag: 9a4b7250-04a0-47c5-adf6-25f84e3ef0bf
+
+	measure 'Matriz Total (bags)' = IF ( ISFILTERED ( FATO_ITENS_PEDIDO[RECEITA_TSI] ), [Total em Bags], CALCULATE ( [Total em Bags], FATO_ITENS_PEDIDO[RECEITA_TSI] = "SEM TSI" ) )
+		formatString: #,0.##
+		displayFolder: 7. Matriz por cliente
+		lineageTag: 65f8ef5f-6ba8-4a43-83cc-143b2e70eb15
+
+	measure 'Título Matriz' = "Receita: " & IF ( ISFILTERED ( FATO_ITENS_PEDIDO[RECEITA_TSI] ), IF ( HASONEVALUE ( FATO_ITENS_PEDIDO[RECEITA_TSI] ), VALUES ( FATO_ITENS_PEDIDO[RECEITA_TSI] ), "várias selecionadas" ), "SEM TSI" ) & "  ·  para ver outra receita, clique nela na pizza ou escolha no filtro"
+		displayFolder: 7. Matriz por cliente
+		lineageTag: f5ca7ffd-dc18-4e8b-8d97-1db5dee2b5b9
+
+	measure 'Qtd Pedida' = CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_EFETIVA] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 3. Quantidades
+		lineageTag: df5e313e-7d73-4edb-b675-f52ae1905e0e
+
+	measure 'Qtd Fechada sem Entrega' = CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, FATO_ITENS_PEDIDO[QUANTIDADE_ORIGINAL] - FATO_ITENS_PEDIDO[QTD_FATURADA] ), KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "FECHADO" ) )
+		formatString: #,0
+		displayFolder: 4. Conferência
+		lineageTag: 0bdd595d-d1de-4814-8f63-002c50d7126b
+
+	measure 'Entregue na Embalagem' = VAR _e = [Embalagem Selecionada] RETURN CALCULATE ( SUM ( FATO_ITENS_PEDIDO[QTD_FATURADA] ), FATO_ITENS_PEDIDO[EMBALAGEM] = _e, KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] <> "CANCELADO" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: 62e9e130-ec26-4b40-9922-d02ca446deca
+
+	measure 'Saldo a Carregar na Embalagem' = VAR _e = [Embalagem Selecionada] RETURN CALCULATE ( SUMX ( FATO_ITENS_PEDIDO, MAX ( 0, FATO_ITENS_PEDIDO[QTD_A_FATURAR] ) ), FATO_ITENS_PEDIDO[EMBALAGEM] = _e, KEEPFILTERS ( FATO_ITENS_PEDIDO[STATUS_PEDIDO] = "ABERTO" ) )
+		formatString: #,0
+		displayFolder: 6. Embalagem do pedido
+		lineageTag: aebefb66-4dfd-4571-bc4c-9cb1e0099577
+
+	measure 'Bags (com % do total)' = [Bags Total]
+		displayFolder: 3. Quantidades
+		lineageTag: b8901924-9198-4b68-987d-9ceb2f2fb6ee
+
+		formatStringDefinition = VAR _v = [Bags Total] VAR _t = CALCULATE ( [Bags Total], ALLSELECTED ( FATO_ITENS_PEDIDO[GRUPO_CULTIVAR] ), ALLSELECTED ( FATO_ITENS_PEDIDO[BIOTECNOLOGIA] ) ) VAR _p = FORMAT ( DIVIDE ( _v, _t ), "0.0%" ) RETURN "#,0""  ·  " & _p & """"
+
+	measure 'Total Bags (texto)' = "Total: " & FORMAT ( [Bags Total], "#,0" ) & " bags"
+		displayFolder: 4. Títulos
+		lineageTag: 08a07604-3fd6-4269-aab1-86113968c098
+
+	measure 'Total Bags (card)' = FORMAT ( [Bags Total], "#,0" ) & " bags"
+		displayFolder: 4. Títulos
+		lineageTag: b3425ba7-94ef-4d99-8bfe-fba52a208b98
+
+	measure 'SVG Total Bags' = VAR _v = FORMAT ( [Bags Total], "#,0" ) & " bags" VAR _svg = "<svg xmlns='http://www.w3.org/2000/svg' width='340' height='30'>" & "<defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='#9DCBDB'/><stop offset='1' stop-color='#16425B'/></linearGradient></defs>" & "<text x='0' y='20' font-family='Segoe UI' font-size='12' font-weight='600' fill='#5B6B78'>Bags Total</text>" & "<rect x='74' y='8' width='96' height='14' rx='2' fill='url(#g)'/>" & "<text x='180' y='21' font-family='Segoe UI' font-size='16' font-weight='700' fill='#16425B'>" & _v & "</text></svg>" RETURN "data:image/svg+xml;utf8," & SUBSTITUTE ( _svg, "#", "%23" )
+		displayFolder: 4. Títulos
+		lineageTag: cdd56a93-6f78-4e70-a785-9dbd720d2048
+		dataCategory: ImageUrl
+
+	column 'Coluna 1'
+		dataType: string
+		isHidden
+		lineageTag: 4c7fc440-6cb2-411c-910d-eeeb3ac29398
+		summarizeBy: none
+		sourceColumn: Coluna 1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

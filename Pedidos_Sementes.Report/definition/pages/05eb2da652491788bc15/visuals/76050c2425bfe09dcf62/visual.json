@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "76050c2425bfe09dcf62",
+  "position": {
+    "x": 8,
+    "y": 76,
+    "z": 68000,
+    "height": 66,
+    "width": 204,
+    "tabOrder": 68000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Bags (pedidos em bag)"
+                }
+              },
+              "queryRef": "_Medidas.Bags (pedidos em bag)",
+              "nativeQueryRef": "Bags (pedidos em bag)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

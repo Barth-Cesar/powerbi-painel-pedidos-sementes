@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "c377abb543cf04e4fe97",
+  "displayName": "Detalhe Obtentor",
+  "displayOption": "FitToPage",
+  "height": 740,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "99d8bef891737008cb5b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "GRUPO_CULTIVAR"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FATO_ITENS_PEDIDO",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "GRUPO_CULTIVAR"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'GENÉTICA ALFA'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "52e0fd76aa4b1bd9a6ba",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "5de63f66644c6e1e9d2b",
+        "boundFilter": "99d8bef891737008cb5b",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "GRUPO_CULTIVAR"
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode"
+}

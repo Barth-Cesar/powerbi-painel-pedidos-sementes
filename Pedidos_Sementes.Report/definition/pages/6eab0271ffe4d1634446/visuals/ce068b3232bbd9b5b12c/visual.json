@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ce068b3232bbd9b5b12c",
+  "position": {
+    "x": 856,
+    "y": 76,
+    "z": 7000,
+    "height": 66,
+    "width": 204,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "% Com TSI"
+                }
+              },
+              "queryRef": "_Medidas.% Com TSI",
+              "nativeQueryRef": "% Com TSI"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

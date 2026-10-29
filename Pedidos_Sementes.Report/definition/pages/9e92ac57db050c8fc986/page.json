@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "9e92ac57db050c8fc986",
+  "displayName": "Detalhe Biotecnologia",
+  "displayOption": "FitToPage",
+  "height": 740,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "40d74ba5dcb2673d440b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "BIOTECNOLOGIA"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FATO_ITENS_PEDIDO",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "BIOTECNOLOGIA"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'TOLERA MAX'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "bb201613084991d6ff63",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "5fa629befe5a02b90582",
+        "boundFilter": "40d74ba5dcb2673d440b",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "BIOTECNOLOGIA"
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode"
+}

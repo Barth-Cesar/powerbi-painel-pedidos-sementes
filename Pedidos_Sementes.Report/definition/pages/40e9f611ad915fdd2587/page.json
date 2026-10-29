@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "40e9f611ad915fdd2587",
+  "displayName": "Detalhe TSI",
+  "displayOption": "FitToPage",
+  "height": 740,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "efd6f96a3bcbc1c290f1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "TEM_TSI"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FATO_ITENS_PEDIDO",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "TEM_TSI"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'COM TSI'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "85373235acace771eb37",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "7782aa53a39b8f8ab763",
+        "boundFilter": "efd6f96a3bcbc1c290f1",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FATO_ITENS_PEDIDO"
+              }
+            },
+            "Property": "TEM_TSI"
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode"
+}

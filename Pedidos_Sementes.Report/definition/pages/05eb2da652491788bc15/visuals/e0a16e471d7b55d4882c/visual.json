@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e0a16e471d7b55d4882c",
+  "position": {
+    "x": 1068,
+    "y": 76,
+    "z": 68500,
+    "height": 66,
+    "width": 204,
+    "tabOrder": 68500
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Nº Clientes (todas embalagens)"
+                }
+              },
+              "queryRef": "_Medidas.Nº Clientes (todas embalagens)",
+              "nativeQueryRef": "Nº Clientes",
+              "displayName": "Nº Clientes"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

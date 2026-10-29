@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "354938edfa3a71526c4c",
+  "position": {
+    "x": 392,
+    "y": 8,
+    "z": 3000,
+    "height": 60,
+    "width": 150,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FATO_ITENS_PEDIDO"
+                    }
+                  },
+                  "Property": "VENDEDOR_PRINCIPAL"
+                }
+              },
+              "queryRef": "FATO_ITENS_PEDIDO.VENDEDOR_PRINCIPAL",
+              "nativeQueryRef": "Vendedor",
+              "active": true,
+              "displayName": "Vendedor"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
